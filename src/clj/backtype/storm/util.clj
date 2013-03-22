@@ -449,6 +449,9 @@
 (defn add-to-classpath [classpath paths]
   (str/join ":" (cons classpath paths)))
 
+(defn add-to-classpath-head [classpath paths]
+  (str/join ":" (concat paths [classpath])))
+
 (defn ^ReentrantReadWriteLock mk-rw-lock []
   (ReentrantReadWriteLock.))
 
