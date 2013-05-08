@@ -1,5 +1,6 @@
 /classes
 /lib
+target/
 deploy/lib
 deploy/logs
 .emacs-project
@@ -24,3 +25,4 @@ _release
 *.ipr
 *.iws
 .idea
+old-pom.xml

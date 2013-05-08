@@ -3,7 +3,7 @@
   (do (println (str "ERROR: requires Leiningen 1.x but you are using " lein-version))
     (System/exit 1)))
 
-(defproject storm "0.8.2"
+(defproject storm "0.8.2-csd-1"
   :source-path "src/clj"
   :test-path "test/clj"
   :java-source-path "src/jvm"
@@ -18,6 +18,7 @@
                  [clj-time "0.4.1"]
                  [log4j/log4j "1.2.16"]
                  [com.netflix.curator/curator-framework "1.0.1"]
+                 [org.apache.zookeeper/zookeeper "3.4.3"]
                  [backtype/jzmq "2.1.0"]
                  [com.googlecode.json-simple/json-simple "1.1"]
                  [compojure "1.1.3"]
@@ -25,7 +26,8 @@
                  [ring/ring-jetty-adapter "0.3.11"]
                  [org.clojure/tools.logging "0.2.3"]
                  [org.clojure/math.numeric-tower "0.0.1"]
-                 [org.slf4j/slf4j-log4j12 "1.5.8"]
+                 [org.slf4j/slf4j-api "1.7.2"]
+                 [org.slf4j/slf4j-log4j12 "1.7.2"]
                  [storm/carbonite "1.5.0"]
                  [org.yaml/snakeyaml "1.9"]
                  [org.apache.httpcomponents/httpclient "4.1.1"]
