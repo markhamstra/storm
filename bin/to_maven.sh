@@ -33,7 +33,7 @@ cd $(dirname $0)/..
 build() {
   mkdir -p target
 
-  version=`head -1 project.clj | awk '{print $3}' | sed -e 's/\"//' | sed -e 's/\"//'`
+  version=`grep defproject project.clj | awk '{print $3}' | sed -e 's/\"//' | sed -e 's/\"//'`
 
   # Build storm jar and pom
   if [ ! -f target/storm-$version.jar ] ||
