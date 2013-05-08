@@ -24,3 +24,4 @@ _release
 *.ipr
 *.iws
 .idea
+old-pom.xml
