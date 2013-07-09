@@ -398,10 +398,12 @@
           stormroot (supervisor-stormdist-root conf storm-id)]
       (FileUtils/forceMkdir (File. tmproot))
       
-      (Utils/downloadFromMaster conf (master-stormjar-path master-code-dir) (supervisor-stormjar-path tmproot))
+      ; No need to download  the storm jar
+      (if (not (contains? conf LIB-LOCATION))
+        (Utils/downloadFromMaster conf (master-stormjar-path master-code-dir) (supervisor-stormjar-path tmproot))
+        (extract-dir-from-jar (supervisor-stormjar-path tmproot) RESOURCES-SUBDIR tmproot))
       (Utils/downloadFromMaster conf (master-stormcode-path master-code-dir) (supervisor-stormcode-path tmproot))
       (Utils/downloadFromMaster conf (master-stormconf-path master-code-dir) (supervisor-stormconf-path tmproot))
-      (extract-dir-from-jar (supervisor-stormjar-path tmproot) RESOURCES-SUBDIR tmproot)
       (FileUtils/moveDirectory (File. tmproot) (File. stormroot))
       ))
 
@@ -410,7 +412,7 @@
     :distributed [supervisor storm-id port worker-id]
     (let [conf (:conf supervisor)
           stormroot (supervisor-stormdist-root conf storm-id)
-          stormjar (supervisor-stormjar-path stormroot)
+          stormjar (if (contains? conf LIB-LOCATION) (str (conf LIB-LOCATION )) (supervisor-stormjar-path stormroot))
           storm-conf (read-supervisor-storm-conf conf storm-id)
           classpath (add-to-classpath-head (current-classpath) [stormjar])
           childopts (.replaceAll (str (conf WORKER-CHILDOPTS) " " (storm-conf TOPOLOGY-WORKER-CHILDOPTS))
