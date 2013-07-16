@@ -611,7 +611,7 @@ public class Config extends HashMap<String, Object> {
      * Jar file location for Storm supervisors. This location will *always* have the Jar file needed
      * to submit topologies, so no need to download from Nimbus each time
      */
-    public static String LIB_LOCATION = "libLocation";
+    public static String STORM_JAR_PATH = "stormJarPath";
         
     public static void setDebug(Map conf, boolean isOn) {
         conf.put(Config.TOPOLOGY_DEBUG, isOn);
