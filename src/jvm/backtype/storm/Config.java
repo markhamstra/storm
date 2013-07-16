@@ -606,6 +606,12 @@ public class Config extends HashMap<String, Object> {
      * to backtype.storm.scheduler.IsolationScheduler to make use of the isolation scheduler.
      */
     public static String ISOLATION_SCHEDULER_MACHINES = "isolation.scheduler.machines";
+
+    /**
+     * Jar file location for Storm supervisors. This location will *always* have the Jar file needed
+     * to submit topologies, so no need to download from Nimbus each time
+     */
+    public static String STORM_JAR_PATH = "stormJarPath";
         
     public static void setDebug(Map conf, boolean isOn) {
         conf.put(Config.TOPOLOGY_DEBUG, isOn);
