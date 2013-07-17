@@ -399,10 +399,10 @@
       (FileUtils/forceMkdir (File. tmproot))
       
       ; No need to download the storm jar
-      (if (not (contains? conf STORM-JAR-PATH)) (do (
+      (if (not (contains? conf STORM-JAR-PATH)) (do
         (Utils/downloadFromMaster conf (master-stormjar-path master-code-dir) (supervisor-stormjar-path tmproot))
         (extract-dir-from-jar (supervisor-stormjar-path tmproot) RESOURCES-SUBDIR tmproot)
-      )))
+      ))
       (Utils/downloadFromMaster conf (master-stormcode-path master-code-dir) (supervisor-stormcode-path tmproot))
       (Utils/downloadFromMaster conf (master-stormconf-path master-code-dir) (supervisor-stormconf-path tmproot))
       (FileUtils/moveDirectory (File. tmproot) (File. stormroot))
