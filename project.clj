@@ -3,7 +3,7 @@
   (do (println (str "ERROR: requires Leiningen 1.x but you are using " lein-version))
     (System/exit 1)))
 
-(defproject storm "0.8.2-csd-2"
+(defproject storm "0.8.2-csd-3"
   :source-path "src/clj"
   :test-path "test/clj"
   :java-source-path "src/jvm"
@@ -28,7 +28,7 @@
                  [org.clojure/math.numeric-tower "0.0.1"]
                  [org.slf4j/slf4j-api "1.7.2"]
                  [org.slf4j/slf4j-log4j12 "1.7.2"]
-                 [storm/carbonite "1.5.0"]
+                 [storm/carbonite "1.5.0-csd-1"]
                  [org.yaml/snakeyaml "1.9"]
                  [org.apache.httpcomponents/httpclient "4.1.1"]
                  [storm/tools.cli "0.2.2"]
