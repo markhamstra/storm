@@ -36,6 +36,7 @@ cp README.markdown $DIR/
 cp LICENSE.html $DIR/
 
 cd _release
+chmod -R a+r .
 zip -r storm-$RELEASE.zip *
 cd ..
 mv _release/storm-*.zip .
